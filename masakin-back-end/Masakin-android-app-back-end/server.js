@@ -1,0 +1,30 @@
+require("dotenv").config(); // ALLOWS ENVIRONMENT VARIABLES TO BE SET ON PROCESS.ENV SHOULD BE AT TOP
+const express = require("express");
+const app = express();
+
+// Middleware
+app.use(express.json()); // parse json bodies in the request object
+
+// Redirect requests to endpoint starting with /posts to postRoutes.js
+app.use("/restaurant", require("./routes/restaurantRoutes"));
+app.use("/menu", require("./routes/menuRoutes"));
+app.use("/order", require("./routes/orderRoutes"));
+app.use("/account", require("./routes/accountRoutes"));
+app.use("/login", require("./routes/loginRoutes"));
+app.use("/testorder", require("./routes/testOrderRoutes"));
+app.use("/signup", require("./routes/signupRoutes"));
+
+// Global Error Handler. IMPORTANT function params MUST start with err
+app.use((err, req, res, next) => {
+  console.log(err.stack);
+  console.log(err.name);
+  console.log(err.code);
+
+  res.status(500).json({
+    message: "Something went really wrong",
+  });
+});
+
+// Listen on pc port
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => console.log(`Server running on PORT ${PORT}`));

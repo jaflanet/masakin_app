@@ -1,0 +1,22 @@
+[
+    {
+        "placeImage":"assets/images/ayamBakar",
+        "placeName":"ayam bakar",
+        "place price":"20000,"
+    },
+    {
+        "placeImage":"assets/images/ayamGoren",
+        "placeName":"Ayam goreng",
+        "place price":"16000"
+    },
+    {
+        "placeImage":"assets/images/ayamBakar",
+        "placeName":"Paket Ayam Baka",
+        "place price":"24000"
+    },
+    {
+        "placeImage":"assets/images/ayamGoreng",
+        "placeName":"Paket Ayam goreng",
+        "place price":"22000"
+    }
+]
